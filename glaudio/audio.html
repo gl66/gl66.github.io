@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>播放器</title>
+    <link rel="stylesheet" href="font_hqu73w1lb1d78pvi/iconfont.css">
+    <script src="js/audio.js"></script>
+    <script src="js/index.js"></script>
+</head>
+<style>
+    *{
+        padding: 0;
+        margin:0;
+        list-style:none;
+    }
+    html{
+        width:100%;
+        height:100%;
+        overflow: hidden;
+    }
+    body{
+        width:100%;
+        height:100%;
+        background-image: url("img/1.jpg");
+        background-position: center;
+        background-size:cover;
+    }
+    .top{
+        width:100%;
+        height:auto;
+    }
+    .songs{
+        width:200px;
+        height:30px;
+        /*background:#3E81C4;*/
+        margin: 30px auto;
+        text-align: center;
+        font-size: 30px;
+        line-height:30px;
+    }
+    .name{
+        width:200px;
+        height: 30px;
+        /*background:#4B5D24;*/
+        margin: 10px auto;
+        text-align: center;
+        font-size: 25px;
+        line-height:30px;
+    }
+    ul{
+        width:350px;
+        height:400px;
+        /*background:#DB483B;*/
+        margin: 30px auto;
+        text-align: center;
+        /*font-size: 30px;*/
+        line-height:30px;
+        overflow: hidden;
+    }
+    ul>li{
+        width:100%;
+        height:20px;
+        margin-top:10px;
+        /*background:#3E81C4;*/
+        font-size: 16px;
+        line-height:20px;
+        text-align: center;
+        color: #6A129B;
+    }
+    .now{
+        color:#C6DE08;
+        font-size: 20px;
+    }
+    .bottom{
+        width:100%;
+        position: absolute;
+        height:100px;
+        background:#000000;
+        opacity:0.8;
+        bottom:0px;
+    }
+   .bigbox{
+        width: 1000px;
+        height:100px;
+        /*background: red;*/
+        margin: 0 auto;
+    }
+   .left{
+        width:150px;
+        height:100%;
+        float: left;
+        /*background:#276FB7;*/
+        margin-left:0;
+    }
+  .left>i{
+        /*width:40px;*/
+        /*height:40px;*/
+        color: #0AA6E8;
+        font-size: 30px;
+    }
+    .right>i{
+        /*width:40px;*/
+        /*height:40px;*/
+        color: #0AA6E8;
+        font-size: 30px;
+    }
+ .middle{
+        width:700px;
+        height:100%;
+        float: left;
+        background:#9DE30D;
+    }
+    .left>i:nth-child(1){
+        margin-left:10px;
+        float: left;
+        margin-top: 35px;
+    }
+   .left>i:nth-child(3){
+        margin-right:10px;
+        float: right;
+        margin-top: 35px;
+    }
+    .left>i:nth-child(2){
+        /*font-size: 40px;*/
+        margin-top: 25px;
+        float: left;
+        margin-left: 15px;
+    }
+    .right>i:nth-child(1){
+        margin-left:10px;
+        float: left;
+        margin-top: 35px;
+    }
+    .right>i:nth-child(3){
+        margin-right:10px;
+        float: right;
+        margin-top: 35px;
+    }
+    .right>i:nth-child(2){
+        /*font-size: 40px;*/
+        margin-top: 35px;
+        float: left;
+        margin-left: 17px;
+    }
+   .right{
+        width:150px;
+        height:100%;
+        float: right;
+        /*background:#276FB7;*/
+        margin-right:0;
+    }
+    .icon-bofang:before { font-size:40px;}
+    .icon-zanting:before { font-size:40px; }
+    .topm{
+        width: 100%;
+        height: 50px;
+        background: red;
+    }
+    .botm{
+        width:100%;
+        height:50px;
+        background: indianred;
+        position: relative;
+    }
+    .img{
+        width:50px;
+        height:50px;
+        position:absolute;
+    }
+    img{
+        width:50px;
+        height:50px;
+    }
+    .jindu1{
+        width:600px;
+        height:5px;
+        background:#03121F;
+        margin-left:60px;
+        position: absolute;
+        top:25px;
+    }
+    .jindu2{
+        height:5px;
+        background:#B21595;
+        position: absolute;
+
+    }
+</style>
+<body>
+<audio src="music/初爱.mp3"></audio>
+<div class="top">
+    <div class="songs">歌名</div>
+    <div class="name">歌手</div>
+    <!--<div class="lyrics">歌词</div>-->
+    <ul class="lyrics">
+        <li class="lyric now">这是第一句歌词</li>
+        <li class="lyric">这是第一句歌词</li>
+        <li class="lyric">这是第一句歌词</li>
+        <li class="lyric">这是第一句歌词</li>
+        <li class="lyric">这是第一句歌词</li>
+        <li class="lyric">这是第一句歌词</li>
+        <li class="lyric">这是第一句歌词</li>
+        <li class="lyric">这是第一句歌词</li>
+        <li class="lyric">这是第一句歌词</li>
+        <li class="lyric">这是第一句歌词</li>
+        <li class="lyric">这是第一句歌词</li>
+        <li class="lyric">这是第一句歌词</li>
+        <li class="lyric">这是第一句歌词</li>
+        <li class="lyric">这是第一句歌词</li>
+        <li class="lyric">这是第一句歌词</li>
+        <li class="lyric">这是第一句歌词</li>
+        <li class="lyric">这是第一句歌词</li>
+        <li class="lyric">这是第一句歌词</li>
+        <li class="lyric">这是第一句歌词</li>
+        <li class="lyric">这是第一句歌词</li>
+    </ul>
+</div>
+<div class="bottom">
+    <div class="bigbox">
+        <div class="left">
+            <i class="iconfont icon-shangyige prev"></i>
+            <i class="iconfont icon-bofang play "></i>
+            <i class="iconfont icon-xiayige next"></i>
+        </div>
+        <div class="middle">
+            <div class="topm">
+                <span class="songs2">歌名</span>
+                <span class="name2">歌手</span>
+                <span class="time2">00:00</span>
+            </div>
+            <div class="botm">
+               <div class="img"><img src="images/1.jpg" alt=""></div>
+                <div class="img"><img src="images/2.jpg" alt=""></div>
+                <div class="img"><img src="images/3.jpg" alt=""></div>
+                <div class="img"><img src="images/4.jpg" alt=""></div>
+                <div class="img"><img src="images/5.jpg" alt=""></div>
+                <div class="img"><img src="images/6.jpg" alt=""></div>
+            <div class="jindu1">
+                    <div class="jindu2"></div>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <i class="iconfont icon-xihuan1 like "></i>
+            <i class="iconfont icon-liebiaoxunhuan list"></i>
+            <i class="iconfont icon-shengyin"></i>
+        </div>
+    </div>
+</div>
+</body>
+</html>

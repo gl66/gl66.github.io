@@ -1,0 +1,122 @@
+*{
+    padding:0;
+    margin:0;
+    list-style: none;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+    background-image: url("../img/1.jpg");
+    background-position: center;
+    background-size:cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+.entirety{
+    width: 100%;
+    height:100%;
+    /*background: #CBF083;*/
+    position: relative;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    opacity: 0.8;
+}
+.entirety>.tool{
+    width: 130px;
+    height:100%;
+    /*background: #248755;*/
+    position: absolute;
+    left:0;
+    top:0;
+    opacity: 0.8;
+    box-sizing: border-box;
+    border: 2px solid #8b8e8e;
+
+}
+.tool>label{
+    display: block;
+    float: left;
+    margin-left: 15px;
+    margin-top:15px;
+    margin-bottom: 15px;
+    padding: 10px;
+    border:2px solid black;
+    box-sizing: border-box;
+    opacity: 0.8;
+    /*position: relative;*/
+}
+label>input{
+    width: 100%;
+    height:100%;
+    /*position: absolute;*/
+}
+.entirety>.draw{
+    height:100%;
+    /*background: rgba(87, 175, 182, 0.57);*/
+    position: relative;
+    margin-left: 130px;
+    top:0;
+
+}
+.draw>.menu{
+    width:100%;
+    height: 100px;
+    /*background: #9acea7;*/
+    opacity: 1;
+    box-sizing: border-box;
+    border: 2px solid #8b8e8e;
+    border-left:none;
+}
+.draw>.menu>label{
+    display: block;
+    float: left;
+    margin-left:60px;
+    margin-top:30px;
+    margin-bottom: 30px;
+    padding: 10px;
+    border:2px solid black;
+    box-sizing: border-box;
+    opacity: 0.8;
+}
+.draw canvas{
+    display: block;
+    background: #aaaaaa;
+    box-sizing: border-box;
+    border: 2px solid #8b8e8e;
+    border-left:none;
+    border-top:0;
+    position: absolute;
+    top:100px;
+    /*left:20px;*/
+  /*margin: auto;*/
+}
+.img1{
+    width:240px;
+    height:200px;
+    position:absolute;
+    border:1px solid #fff;
+    background: rgba(255,255,255,1);
+    display: block;
+    top:80px;
+    bottom:0;
+    margin:auto;
+    left:800px;
+}
+
+.draw .mask{
+    width:100%;
+    height:500px;
+    position: absolute;
+    z-index: 99999;
+
+}
+#hot{
+    background:indianred;
+}
+.rubberbtn{
+    display: none;
+    position: absolute;
+    z-index:30;
+}

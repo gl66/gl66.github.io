@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>个人简历</title>
+    <link rel="stylesheet" href="css/jquery.fullPage.css">
+    <link rel="stylesheet" href="css/d.css">
+    <link rel="stylesheet" href="css/lib.css">
+    <link rel="stylesheet" href="css/tabris.css">
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/jquery-ui-1.10.3.min.js"></script>
+    <script src="js/jquery.fullPage.min.js"></script>
+    <!--<script src="js/jquery.js"></script>-->
+    <script src="js/d.js"></script>
+
+    <style>
+
+        .section { text-align: center; font: 50px "Microsoft Yahei"; color: #fff;}
+        .section1 { background: url(images/n1.jpg) ;background-position: center;background-size: cover;background-repeat: no-repeat;position: relative}
+        .section2 { background: url(images/n2.png) ;background-position: center;background-size: cover;background-repeat: no-repeat;position: relative}
+        .section3 { background: url(images/n3.jpg) ;background-position: center;background-size: cover;background-repeat: no-repeat;position: relative;overflow: hidden;}
+        .section4 { background: url(images/n4.jpg) ;background-position: center;background-size: cover;background-repeat: no-repeat;position: relative}
+        #menu { margin: 0; padding: 0; position: fixed; right: 10px; top: 10px; list-style-type: none; z-index: 70;}
+        #menu li { float: left; margin:  0 10px 0 0; font-size: 14px;}
+        #menu a { float: left; padding: 10px 20px; background-color: #fff; color: #333; text-decoration: none;}
+        #menu .active a { color: #fff; background-color: #333;}
+      /*   第一屏    */
+        .capacity{overflow: hidden;width:900px;height: 280px;display: block;margin-left: 260px;padding-top:80px;position: relative;}
+        .capacity li{cursor: pointer;position: absolute;background: black;border-radius: 50%;width: 200px;height: 200px;list-style: none;line-height: 100px;text-align: center;opacity: 0.6}
+        .capacity .left{left:120px;}
+        .capacity .bottom{bottom:0px;left :390px}
+        .capacity .right{right:40px;}
+        .capacity li strong{position: absolute;list-style: none;font-size: 24px;color: white;display: block;width: 100%;height: 100px;top: 50px;transition:all 0.6s;}
+        .capacity li span{position: absolute;list-style: none;font-size: 30px;color: white;display: block;width: 100%;height: 100px;top: 200px;transition:all 0.5s;}
+        .capacity li:hover strong{  opacity: 0; }
+        .capacity li:hover span{  top:50px }
+        /*   第二屏    */
+        .section2 p{font-size: 30px;}
+        .content{width: 900px;height: 550px;position: absolute;right: 30px;top:120px;/*background: red;*/}
+        .con1{width: 600px;height: 200px;position: absolute;left:0;top: 0;/*background: blue;*/font-size: 36px;text-align: left;color:#B2EA3E;}
+        .con1 p{font-size: 24px;line-height: 36px;display: block;margin-top: 10px;text-align: left;color: #12F2F0;}
+        .con2{ width: 666px;height: 200px;position: absolute;right:0;top: 200px;font-size: 36px;text-align: left;color:#3B0558;}
+        .con2 p{font-size: 24px;line-height: 36px;display: block;margin-top: 10px;text-align: left;color: #AAF70A;}
+        .con3{ width: 666px;height: 200px;position: absolute;left:0;top: 430px;font-size: 36px;text-align: left;color:#085546;}
+        .con3 p{font-size: 24px;line-height: 36px;display: block;margin-top: 10px;text-align: left;color: #2E05F5;}
+
+
+        /*   第三屏    */
+        /*.pic1{width: 600px;height: 370px;display: block;position: absolute;left: -800px;background-image: url("images/g1.jpg");background-position: center;background-size: 80% 80%;background-repeat: no-repeat;opacity: 0.8;}
+        .pic2{width: 40%;height: 370px;display: block;float: left;margin-left: 80px;background-image: url("images/g22.jpg");background-position: center;background-size:contain;background-repeat: no-repeat;opacity: 0.8;}
+        .pic3{width: 50%;height: 370px;display: block;float: left;margin-left: 30px;background-image: url("images/g3.jpg");background-position: center;background-size: contain;background-repeat: no-repeat;opacity: 0.8;}
+        .pic4{width: 50%;height: 370px;display: block;float: left;margin-left: 30px;background-image: url("images/g4.jpg");background-position: center;background-size: contain;background-repeat: no-repeat;opacity: 0.8;}
+        .pic11{float: right;width: 40%;height: 270px;background: #053B79;margin-right: 120px;opacity: 0.6;padding-top: 100px;}
+        .pic11 span{color: #D6EAAD;font-size: 33px;line-height: 40px;width: 90%;text-align: left;}*/
+        .sec3son{width: 700px;height: 450px;position: absolute;top:0;left:0;right:0;bottom:0;margin: auto;}
+        .photo1{width:300px;height:200px;position: absolute;top:0;left:0; background-image: url("images/g1.jpg");background-position: center;background-size: 100% 100%;background-repeat: no-repeat;border-radius: 2px;}
+        .photo2{width:300px;height:200px;position: absolute;top:0;right:0; background-image: url("images/g22.jpg");background-position: center;background-size: 100% 100%;background-repeat: no-repeat;border-radius: 2px;}
+        .photo3{width:300px;height:200px;position: absolute;bottom:0;left:0; background-image: url("images/g3.jpg");background-position: center;background-size: 100% 100%;background-repeat: no-repeat;border-radius: 2px;}
+        .photo4{width:300px;height:200px;position: absolute;bottom:0;right:0; background-image: url("images/g4.jpg");background-position: center;background-size: 100% 100%;background-repeat: no-repeat;border-radius: 2px;}
+        .photo .mask1{width: 100%;height:100%;position:absolute;top:0;left:0;background: #904DCE;opacity: 0;transition: all 0.5s;}
+        .photo .mask2{width: 100%;height:100%;position:absolute;top:0;left:0;background: #904DCE;opacity: 0;transition: all 0.5s;}
+        .photo .mask3{width: 100%;height:100%;position:absolute;top:0;left:0;background: #904DCE;opacity: 0;transition: all 0.5s;}
+        .photo .mask4{width: 100%;height:100%;position:absolute;top:0;left:0;background: #904DCE;opacity: 0;transition: all 0.5s;}
+        .photo:hover .mask1{opacity: 0.6;}
+        .photo:hover .mask2{opacity: 0.6;}
+        .photo:hover .mask3{opacity: 0.6;}
+        .photo:hover .mask4{opacity: 0.6;}
+        .photo p{font-size: 36px;text-align: center;color:#fff;font-weight:bolder;}
+        /*第四屏*/
+        .section4 ul{width: 600px;height:400px;position: absolute;top:0;left:0;right:0;bottom:0;margin:auto;}
+        .section4 ul li{width: 100%;height: 72px;position: absolute;}
+        .sec4-1{top:0;left:-100px;}
+        .sec4-2{top:150px;right:0;}
+        .sec4-3{top:300px;left:0;}
+
+    </style>
+    <script>
+        $(document).ready(function() {
+            $.fn.fullpage({
+                slidesColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', '#f90'],
+                anchors: ['page1', 'page2', 'page3', 'page4'],
+                loopBottom: true,
+                menu: '#menu',
+                onLeave: function(){
+                   /* $('.section3').find('.pic1').delay(500).animate({
+
+                        left: '-120%'
+
+                    }, 500);
+                    $('.section3').find('span').fadeOut(1000);*/
+                   $('.section3').find('.photo1').animate({
+                       left:'-100%',
+                       top:'-100%',
+                       opacity:'0'
+                   },400);
+                    $('.section3').find('.photo2').animate({
+                        right:'-100%',
+                        top:'-100%',
+                        opacity:'0'
+                    },400);
+                    $('.section3').find('.photo3').animate({
+                        bottom:'-100%',
+                        left:'-100%',
+                        opacity:'0',
+                    },400);
+                    $('.section3').find('.photo4').animate({
+                        right:'-100%',
+                        bottom:'-100%',
+                        opacity:'0'
+                    },400);
+                    $('.section2').find('p').fadeOut(2000);
+                    $('.section1').find('p').fadeOut(2000);
+                    $('.section1').find('.left').delay(100).animate({
+                        left:'-120%'
+                    },500);
+                    $('.section1').find('.right').delay(100).animate({
+                        right:'-120%'
+                    },500);
+                    $('.section1').find('.bottom').delay(100).animate({
+                        bottom:'-120%'
+                    },500);
+                    $('.section2').find('.con1').delay(100).animate({
+                        left:'-200%'
+                    },300);
+                    $('.section2').find('.con2').delay(200).animate({
+                        right:'-200%'
+                    },300);
+                    $('.section2').find('.con3').delay(300).animate({
+                        top:'900px'
+                    },300);
+                    $('.section4').find('.sec4-1').delay(10).animate({
+                        left:'-200%'
+                    },150);
+                    $('.section4').find('.sec4-2').delay(10).animate({
+                        right:'-200%'
+                    },150);
+                    $('.section4').find('.sec4-3').delay(10).animate({
+                        left:'-200%'
+                    },150);
+
+                },
+
+                afterLoad: function(){
+                   /* $('.section3').find('.pic1').delay(500).animate({
+                        left: '80px'
+
+                    }, 500);
+                    $('.section3').find('span').fadeIn(1000);*/
+                    $('.section3').find('.photo1').delay(200).animate({
+                        left:'0',
+                        top:'0',
+                        opacity:'0.8'
+                    },500);
+                    $('.section3').find('.photo2').delay(200).animate({
+                       right:'0',
+                        top:'0',
+                        opacity:'0.8'
+                    },500);
+                    $('.section3').find('.photo3').delay(200).animate({
+                        left:'0',
+                        bottom:'0',
+                        opacity:'0.8'
+                    },500);
+                    $('.section3').find('.photo4').delay(200).animate({
+                        right:'0',
+                        bottom:'0',
+                        opacity:'0.8'
+                    },500);
+                    $('.section3').find('.photo1').mouseover(function () {
+                        $(this).animate({
+                            width:'400px',
+                            height:'300px',
+                            left:'-100px',
+                            top:'-100px',
+                        },500)
+
+                    });
+                    $('.section3').find('.photo1').mouseout(function () {
+                        $(this).stop(true,true).animate({
+                            width:'300px',
+                            height:'200px',
+                            left:'0px',
+                            top:'0px',
+                        },300)
+
+                    });
+                    $('.section3').find('.photo2').mouseover(function () {
+                        $(this).animate({
+                            width:'400px',
+                            height:'300px',
+                            right:'-100px',
+                            top:'-100px',
+                        },500)
+                    });
+                    $('.section3').find('.photo2').mouseout(function () {
+                        $(this).stop(true,true).animate({
+                            width:'300px',
+                            height:'200px',
+                            right:'0px',
+                            top:'0px',
+                        },300)
+                    });
+                    $('.section3').find('.photo3').mouseover(function () {
+                        $(this).animate({
+                            width:'400px',
+                            height:'300px',
+                            left:'-100px',
+                            bottom:'-100px',
+                        },500)
+                    });
+                    $('.section3').find('.photo3').mouseout(function () {
+                        $(this).stop(true,true).animate({
+                            width:'300px',
+                            height:'200px',
+                            left:'0px',
+                            bottom:'0px',
+                        },300)
+                    });
+                    $('.section3').find('.photo4').mouseover(function () {
+                        $(this).animate({
+                            width:'400px',
+                            height:'300px',
+                            right:'-100px',
+                            bottom:'-100px',
+                        },500)
+                    });
+                    $('.section3').find('.photo4').mouseout(function () {
+                        $(this).stop(true,true).animate({
+                            width:'300px',
+                            height:'200px',
+                            right:'0px',
+                            bottom:'0px',
+                        },300)
+                    });
+                    $('.section2').find('p').fadeIn(2000);
+                    $('.section1').find('p').fadeIn(2000);
+                    $('.section1').find('.left').delay(200).animate({
+                         left:'120px'
+                    },500);
+                    $('.section1').find('.right').delay(300).animate({
+                        right:'40px'
+                    },500);
+                    $('.section1').find('.bottom').delay(500).animate({
+                        bottom:'0'
+                    },500);
+                    $('.section2').find('.con1').delay(100).animate({
+                        left:'0'
+                    },1000);
+                    $('.section2').find('.con2').delay(200).animate({
+                        right:'0'
+                    },1000);
+                    $('.section2').find('.con3').delay(300).animate({
+                        top:'430px'
+                    },1000);
+                    $('.section4').find('.sec4-1').delay(200).animate({
+                        left:'-100px'
+                    },1000);
+                    $('.section4').find('.sec4-2').delay(400).animate({
+                        right:'0px'
+                    },1000);
+                    $('.section4').find('.sec4-3').delay(600).animate({
+                        left:'0'
+                    },1000);
+                },
+
+            });
+        });
+    </script>
+</head>
+<body>
+<ul id="menu">
+    <li data-menuanchor="page1" class="active"><a href="#page1">基本信息</a></li>
+    <li data-menuanchor="page2"><a href="#page2">个人技能</a></li>
+    <li data-menuanchor="page3"><a href="#page3">成果展示</a></li>
+    <li data-menuanchor="page4"><a href="#page4">联系方式</a></li>
+</ul>
+<div class="section section1">
+    <h3>Essential information</h3>
+    <p class="danceWord-s2">前端工程师-----巩磊</p>
+    <ul class="capacity">
+        <li class="left"><strong>毕业学校</strong><span>山西农大</span></li>
+        <li class="bottom"><strong>教育水平</strong><span>本科</span></li>
+        <li class="right"><strong>英语能力</strong><span>英语四级</span></li>
+    </ul>
+</div>
+<div class="section section2">
+    <!--<div class="slide"><h3>Html</h3><p>精通HTML/XHTML等网页制作技术，熟悉页面架构和布局</p><p>掌握情况</p><canvas height="300" width="300"></canvas></div>-->
+    <!--<div class="slide"><h3>css</h3><p>精通css等网页制作技术，熟悉页面架构和布局</p><p>掌握情况</p><canvas height="300" width="300"></canvas></div>-->
+    <!--<div class="slide"><h3>javascript</h3><p>精通JavaScript、Ajax等Web开发技术,熟练运用JS框架</p><p>掌握情况</p><canvas height="300" width="300"></canvas></div>-->
+    <!--<div class="slide"><h3>PHP</h3><p>熟悉W3C标准，对表现与数据分离、Web语义化等有较为深刻的理解</p><p>掌握情况</p><canvas height="300" width="300"></canvas></div>-->
+    <div class="box-3d">
+        <div class="hx-box pa">
+            <ul class="pr">
+                <li class="hx-k1 pa0">
+                    <span>html</span>
+                </li>
+                <li class="hx-k2 pa0">
+                    <span>javascript</span>
+                </li>
+                <li class="hx-k3 pa0">
+                    <span>PHP</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="content">
+        <div class=" con con1"><h6>javascript</h6><p>熟练使用原生js, 了解js面向对象原理，闭包以及原型结构，能够合理利用面向对象以及模块化开发,并且能适当完成框架封装。熟练使用 jQuery，并能完成相关项目。</p></div>
+        <div class=" con con2"><h6>html</h6><p> 熟悉animation fullpage jquery-ui template lazyload jQeasing masonry等实用插件的应用,轮播图，tab栏，瀑布流，延迟加载，全屏滚动等等常用功能的实现</p></div>
+        <div class=" con con3"><h6>PHP</h6><p>掌握 移动端编程，会基于流式布局以及 响应式布局 开发基于移动端的页面。</p></div>
+    </div>
+</div>
+
+<div class="section section3"><!--
+    <div class="slide"><h3>打字游戏</h3><a href="glgame/gamefont.html" target="_blank"><div class="pic1"></div></a><div class="pic11"><span>打字游戏可以消除降落的字母，会根据消除的结果判断进阶和失败，快来尝试吧。</span></div></div>
+    <div class="slide"><h3>画板</h3><a href="glcanvas/huaban.html" target="_blank"><div class="pic2"></div></a><div class="pic11"><span>画板已经可以实现各种形状、线条、颜色的绘制，并且能保存、新建画布。</span></div></div>
+    <div class="slide"><h3>扑克牌</h3><a href="glpk/puke.html" target="_blank"><div class="pic3"></div></a><div class="pic11"><span>扑克牌游戏通过单击两张数字之和为13的牌，进行消除，考验你的时候到了。</span></div></div>
+    <div class="slide"><h3>播放器</h3><a href="glaudio/audio.html" target="_blank"><div class="pic4"></div></a><div class="pic11"><span>音乐播放器，属于你自己的播放器，赶紧下载一个吧。</span></div></div>-->
+     <div class="sec3son">
+         <div class="photo1 photo"><a href="glgame/gamefont.html" target="_blank"><div class="mask1"><p>打字游戏</p></div></a></div>
+         <div class="photo2 photo"><a href="glcanvas/huaban.html" target="_blank"><div class="mask2"><p>画板</p></div></a></div>
+         <div class="photo3 photo"><a href="glpk/puke.html" target="_blank"><div class="mask3"><p>扑克牌</p></div></a></div>
+         <div class="photo4 photo"><a href="glaudio/audio.html" target="_blank"><div class="mask4"><p>音乐播放器</p></div></a></div>
+     </div>
+</div>
+<div class="section section4">
+    <ul>
+        <li class="sec4-1"><i>期待您的邀请，请联系我:</i></li>
+        <li class="sec4-2"><i>电话：18735427023,</i></li>
+        <li class="sec4-3"><i>QQ:157668081。</i></li>
+    </ul>
+
+</div>
+</body>
+</html>

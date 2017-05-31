@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>扑克</title>
+    <script src="../js/jquery.js"></script>
+</head>
+<style>
+   .table{
+        width: 700px;
+        height: 600px;
+        box-sizing: border-box;
+        border: 1px solid black;
+        top:0;
+        left:0;
+        right:0;
+        bottom:0;
+        margin:auto;
+        position: absolute;
+       background: #3603FA;
+    }
+    .poke{
+        width: 90px;
+        height: 130px;
+        position: absolute;
+        box-sizing: border-box;
+        border:1px solid black;
+        background-size:90px 130px;
+    }
+    .active{
+        border:1px solid white;
+    }
+    .right{
+        width: 80px;
+        height: 40px;
+        background: #89CB83;
+        position: absolute;
+        top:480px;
+        left:310px;
+        text-align: center;
+        line-height: 40px;
+        color: white;
+        font-size: 40px;
+        cursor: pointer;
+        border-radius: 5px;
+
+    }
+   .left{
+       width: 80px;
+       height: 40px;
+       background: #89CB83;
+       position: absolute;
+       top:530px;
+       left:310px;
+       text-align: center;
+       line-height: 40px;
+       color: white;
+       font-size: 40px;
+       cursor: pointer;
+       border-radius: 5px;
+   }
+</style>
+<body>
+<div class="table"><div class="left"><--</div>
+    <div class="right">--></div></div>
+
+</body>
+</html>
+<script>
+    $(function () {
+        let poke=[];
+        let color=['h','s','c','d'];
+        let biao={};
+        let first=null;
+        $(document).mousedown(false);
+        for(let i=0;i<52;i++){
+            let house=color[Math.floor(Math.random()*4)];
+            let shuzi=Math.floor(Math.random()*13+1);
+            while (biao[house+'_'+shuzi]){
+                house=color[Math.floor(Math.random()*4)];
+                shuzi=Math.floor(Math.random()*13+1);
+            }
+            biao[house+'_'+shuzi]=true;
+            poke.push({house,shuzi});
+        }
+        let index=0;
+        for(let i=0;i<6;i++){
+            for(let j=0;j<=i;j++){
+                let item=poke[index];
+                index++;
+                let src='url(img/'+item.house+item.shuzi+'.png)';
+                $('<div>').addClass('poke')
+                    .css('backgroundImage',src)
+                    .data('num',item.shuzi)
+                    .delay(20*index)
+                    .prop('id',i+'-'+j)
+                    .animate({
+                        top:60*i,
+                        left:300-50*i+100*j
+                    })
+                    .appendTo('.table');
+            }
+        }
+        for(;index<poke.length;index++){
+            let item=poke[index];
+            let src='url(img/'+item.house+item.shuzi+'.png)';
+            $('<div>').addClass('poke zuo')
+                .css('backgroundImage',src)
+                .data('num',item.shuzi)
+                .delay(30*index)
+                .animate({
+                    top:450,
+                    left:100,
+                    opacity:1
+                })
+                .appendTo('.table');
+        }
+        $('.poke').click(function(){
+            let ids=$(this).prop('id').split('-');
+            let id1=`#${parseInt(ids[0])+1}-${ids[1]}`;
+            let id2=`#${parseInt(ids[0])+1}-${parseInt(ids[1])+1}`;
+            console.log(ids)
+            if($(id1).length==1||$(id2).length==1){
+                return
+            }
+            $(this).toggleClass('active');
+            if($(this).hasClass('active')){
+                $(this).animate({
+                    top:'-=20'
+                })
+            }else{
+                $(this).animate({
+                    top:'+=20'
+                })
+            }
+            if(!first){
+                first=this;
+                let sum=$(first).data('num');
+                if(sum==14){
+                    $('.active').animate({top:0,left:600},function(){
+                        $(this) .remove()
+                    });
+                }
+//                first=null;
+            }else{
+                let sum=$(first).data('num')+$(this).data('num');
+                if(sum==14){
+                    $('.active').animate({top:0,left:600},function(){
+                        $(this) .remove()
+                    });
+                }else{
+                    $('.active').animate({top:'+=20'},function () {
+                        $(this).removeClass('active')
+                    })
+                }
+                first=null;
+            }
+
+        })
+        let z=1;
+        let moveR=$('.right');
+        moveR.on('click',function () {
+            z++;
+            $('.zuo:last')
+                .addClass('you')
+                .removeClass('zuo')
+                .css('zIndex',z)
+                .animate({left:'+=400'})
+
+        })
+        let moveL=$('.left');
+        moveL.on('click',function () {
+            let you=$('.you');
+            for(let i=you.length-1;i>=0;i--){
+                $(you[i]).delay(500*i)
+                    .animate({
+                        left:'-=400px'
+                    },function () {
+                        $(this).css('zIndex',0)
+                    })
+                    .addClass('zuo')
+                    .removeClass('you')
+
+            }
+        })
+
+
+    })
+
+</script>
